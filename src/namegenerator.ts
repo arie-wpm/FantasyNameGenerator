@@ -5,13 +5,7 @@ import PersonPrefixes from './assets/personprefix.json';
 import PersonSuffixes from './assets/personsuffix.json';
 import CreaturePrefixes from './assets/creatureprefix.json';
 import CreatureSuffixes from './assets/creaturesuffix.json';
-// import place and creature components.
 
-enum Creation {
-	Place = 'Place',
-	Person = 'Person',
-	Creature = 'Creature'
-}
 export function generateName(button: HTMLButtonElement, input: HTMLInputElement, display: HTMLElement): void{
 	button.innerHTML = 'Generate'
 	button.addEventListener('click', async () => {
