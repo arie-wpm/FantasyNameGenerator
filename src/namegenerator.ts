@@ -1,7 +1,17 @@
 import MurmurHash from "imurmurhash";
-import placePrefixes from './assets/prefix.json';
-import placeSuffixes from './assets/placesuffix.json';
+import PlacePrefixes from './assets/placeprefix.json';
+import PlaceSuffixes from './assets/placesuffix.json';
+import PersonPrefixes from './assets/personprefix.json';
+import PersonSuffixes from './assets/personsuffix.json';
+import CreaturePrefixes from './assets/creatureprefix.json';
+import CreatureSuffixes from './assets/creaturesuffix.json';
+// import place and creature components.
 
+enum Creation {
+	Place = 'Place',
+	Person = 'Person',
+	Creature = 'Creature'
+}
 export function generateName(button: HTMLButtonElement, input: HTMLInputElement, display: HTMLElement): void{
 	button.innerHTML = 'Generate'
 	button.addEventListener('click', async () => {
@@ -14,13 +24,37 @@ export function generateName(button: HTMLButtonElement, input: HTMLInputElement,
 
 function MakeName(sourceName: string):string{
 	var start = sourceName.substring(0, sourceName.length/2);
-	console.log(start);
 	var end = sourceName.substring(sourceName.length/2, 999);
-	console.log(end);
-	var preIndex = GetHash(start, placePrefixes.length);	
-	var prefix = placePrefixes[preIndex]; 
-	var endIndex = GetHash(end, placeSuffixes.length);	
-	var suffix = placeSuffixes[endIndex];
+	var genSelection = document.querySelector('input[name="genoption"]:checked') as HTMLInputElement;
+	var preIndex: number;
+	var prefix:string;
+	var endIndex:number;
+
+	var suffix:string;
+	switch(genSelection?.value){
+		case "place":
+			preIndex = GetHash(start, PlacePrefixes.length);		
+			prefix = PlacePrefixes[preIndex]; 
+			endIndex = GetHash(end, PlaceSuffixes.length);
+			suffix = PlaceSuffixes[endIndex];
+			break;
+		case "person":
+			preIndex = GetHash(start, PersonPrefixes.length);		
+			prefix = PersonPrefixes[preIndex] + " "; 
+			endIndex = GetHash(end, PersonSuffixes.length);
+			suffix = PersonSuffixes[endIndex];
+			break;
+		case "creature":
+			preIndex = GetHash(start, CreaturePrefixes.length);		
+			prefix = CreaturePrefixes[preIndex]; 
+			endIndex = GetHash(end, CreatureSuffixes.length);
+			suffix = CreatureSuffixes[endIndex];
+			break;
+		default:
+			prefix = "";
+			suffix = "Please Choose which kind of name you want to generate."
+			break;
+	}
 
 	var result = prefix + suffix;
 	result.charAt(0).toUpperCase();
@@ -28,7 +62,6 @@ function MakeName(sourceName: string):string{
 }
 
 function GetHash(str:string, range:number):number{
-
 	var hashStateStart = MurmurHash(str);	
 	var result = hashStateStart.result();	
 	console.log("Hash Result = " + result);
