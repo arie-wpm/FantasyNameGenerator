@@ -4,7 +4,8 @@ import { generateName } from './namegenerator.ts'
 import {fairyDustCursor} from "cursor-effects";
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = template;  
-window.addEventListener("load", (event) => {
+
+window.addEventListener("load", () => {
    new (fairyDustCursor as any)({
 	colors: ["#f4ec02", "#f2ed65", "#969213", "#f4f3dc"],
 	fairySymbol: "✦"
