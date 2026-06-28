@@ -1,6 +1,13 @@
 import './style.css'
 import template from './template.html?raw'
 import { generateName } from './namegenerator.ts'
+import {fairyDustCursor} from "cursor-effects";
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = template;  
-generateName(document.querySelector<HTMLButtonElement>('#generate')!,document.querySelector<HTMLInputElement>('#input')!,document.querySelector('#header')!)
+window.addEventListener("load", (event) => {
+   new (fairyDustCursor as any)({
+	colors: ["#f4ec02", "#f2ed65", "#969213", "#f4f3dc"],
+	fairySymbol: "✦"
+  });
+});
+generateName(document.querySelector<HTMLButtonElement>('#generate')!,document.querySelector<HTMLInputElement>('#nameInput')!,document.querySelector('#fantasy-name')!)

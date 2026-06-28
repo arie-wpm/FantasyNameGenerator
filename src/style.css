@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Metamorphous&display=swap');
+
+*{
+  cursor: url(assets/Tibia\ Magic\ Sword.cur), auto !important;
+}
 :root {
   --text: #B5BEC6;
   --text-h: #B5BEC6;
@@ -14,7 +18,7 @@
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
-  background: var(--bg);
+  background-image: url(assets/deepblue.jpg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,6 +48,8 @@ h1 {
     margin: 20px 0;
   }
 }
+
+
 h2 {
   font-size: 24px;
   line-height: 118%;
@@ -55,6 +61,13 @@ h2 {
 }
 p {
   margin: 0;
+}
+
+#fantasy-name{
+	font-size: 50pt;
+	color: gold;
+	padding: 15px;
+	border: 10px inset darkorange;
 }
 
 .generate {
@@ -90,11 +103,21 @@ p {
 #center {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 100px;
   place-content: center;
   place-items: center;
   flex-grow: 1;
 }
-.typeselection{
-flex-direction: row;
+
+#typeselection{
+	flex-direction: row;
+	display: flex;
+	gap: 30px;
+ 	font-size: 40pt;
+}
+#nameInput{
+	width: 50%;
+	height: 60px;
+	font-size: 35pt;
+	font-family: var(--sans);
 }

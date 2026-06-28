@@ -1,10 +1,12 @@
 import MurmurHash from "imurmurhash";
+import {fairyDustCursor} from "cursor-effects";
 import PlacePrefixes from './assets/placeprefix.json';
 import PlaceSuffixes from './assets/placesuffix.json';
 import PersonPrefixes from './assets/personprefix.json';
 import PersonSuffixes from './assets/personsuffix.json';
 import CreaturePrefixes from './assets/creatureprefix.json';
 import CreatureSuffixes from './assets/creaturesuffix.json';
+
 
 export function generateName(button: HTMLButtonElement, input: HTMLInputElement, display: HTMLElement): void{
 	button.innerHTML = 'Generate'
