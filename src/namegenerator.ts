@@ -1,5 +1,4 @@
 import MurmurHash from "imurmurhash";
-import {fairyDustCursor} from "cursor-effects";
 import PlacePrefixes from './assets/placeprefix.json';
 import PlaceSuffixes from './assets/placesuffix.json';
 import PersonPrefixes from './assets/personprefix.json';

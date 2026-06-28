@@ -1,6 +1,7 @@
 import './style.css'
 import template from './template.html?raw'
 import { generateName } from './namegenerator.ts'
+import {fairyDustCursor} from "cursor-effects";
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = template;  
 window.addEventListener("load", (event) => {
